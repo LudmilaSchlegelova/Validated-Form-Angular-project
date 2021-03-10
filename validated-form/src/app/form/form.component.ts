@@ -1,5 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -44,14 +43,12 @@ export class FormComponent {
   resetUserName() {
     this.name.emit(this.newName);
     this.userName = this.newName;
-    // console.log('reset name: ', this.newName);
     console.log(this.userName);
   }
 
   resetPassword() {
     this.psswd.emit(this.newPsswd);
     this.userPsswd = this.newPsswd;
-    // console.log('reset password: ', this.newPsswd);
     console.log(this.userPsswd);
   }
 }
