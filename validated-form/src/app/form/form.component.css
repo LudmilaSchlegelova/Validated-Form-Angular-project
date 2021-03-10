@@ -1,0 +1,25 @@
+.input-name,
+.input-psswd {
+  width: 350px;
+}
+
+.wrapper-name,
+.wrapper-psswd {
+  display: flex;
+}
+
+.wrapper {
+  justify-content: center;
+  display: flex;
+}
+
+.wrapper-2 {
+  background-color: aliceblue;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+#nameOfUser,
+#password {
+  background-color: #faf8f3;
+}
