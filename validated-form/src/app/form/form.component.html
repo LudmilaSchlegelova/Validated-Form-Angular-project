@@ -1,3 +1,11 @@
+<div
+  *ngIf="isLoading"
+  class="d-flex align-items-center justify-content-center position-absolute top-0 left-0 w-100 h-100"
+  style="z-index: 2; background-color: rgba(0, 0, 0, 0.7)"
+>
+  <div class="spinner-border text-info" role="status"></div>
+  <span class="pl-2" style="color: #17a2b8">Loading...</span>
+</div>
 <form class="wrapper">
   <div class="wrapper-2">
     <h3 class="mt-3 text-center">Validated form example</h3>
@@ -14,12 +22,22 @@
           id="nameOfUser"
           #name
         />
-        <button
-          class="btn btn-warning btn-name"
-          (click)="nameValidation(name.value)"
-        >
-          Confirm
-        </button>
+      </div>
+    </div>
+    <div class="alert alert-info mt-5" *ngIf="!isValidNewPsswd">
+      New Password is not valid!
+    </div>
+    <div class="mt-3 row" [style.display]="!resetPassword ? 'none' : 'flex'">
+      <label for="newPassword" class="col-sm-2 col-form-label"
+        >New Password</label
+      >
+      <div class="col-sm-10 wrapper-psswd">
+        <input
+          type="password"
+          class="form-control input-psswd"
+          id="newPassword"
+          #newPsswd
+        />
       </div>
     </div>
     <div class="alert alert-info mt-5" *ngIf="!isValidPsswd">
@@ -34,22 +52,20 @@
           id="password"
           #psswd
         />
-        <button
-          class="btn btn-warning btn-psswd"
-          (click)="psswdValidation(psswd.value)"
-        >
-          Confirm
-        </button>
       </div>
     </div>
     <div class="text-center">
-      <button class="m-4 btn btn-info" (click)="resetUserName()">
-        Reset User Name
+      <button
+        class="m-4 btn btn-info"
+        (click)="credentialValidation(name, psswd, newPsswd)"
+      >
+        Submit
       </button>
-
-      <button class="m-4 btn btn-info" (click)="resetPassword()">
+      <button class="m-4 btn btn-info" (click)="resetUser()">
         Reset Password
       </button>
     </div>
+    <div *ngIf="isLogIn">Correct Log in on the page.</div>
+    <div *ngIf="isChangedPassword">Password was changed.</div>
   </div>
 </form>
